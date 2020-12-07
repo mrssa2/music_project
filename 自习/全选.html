@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label><input type="checkbox" name="" id="b"> 全选</input></label>
+    <label><input type="checkbox" name="" id="c"> 全不选</input></label>
+    <label><input type="checkbox" name="" id="d"> 反选</input></label>
+    <p>
+    <label><input type="checkbox" name="" id=""> 0</input></label>
+    <label><input type="checkbox" name="" id=""> 0</input></label>
+    <label><input type="checkbox" name="" id="">0</input></label>
+    <label><input type="checkbox" name="" id=""> 0</input></label>
+    <label><input type="checkbox" name="" id=""> 0</input></label>
+</p>
+</body>
+<script>
+    var b = document.querySelector('#b')
+    var c = document.querySelector('#c')
+    var d = document.querySelector('#d')
+    var input = document.querySelectorAll('input')
+    b.onclick = function(){
+       for(var i  =  0; i<input.length;i++){
+           input[i].checked = true;
+       }
+    }
+    c.onclick=function(){
+        for(var i = 0; i<input.length;i++){
+            input[i].checked = false;
+        }
+    }
+    d.onclick = function(){
+        for(var i = 0; i<input.length;i++){
+            if(input[i].checked==true){
+                input[i].checked = false;
+            }else{
+                input[i].checked = true;
+            }
+        }
+    }
+</script>
+</html>

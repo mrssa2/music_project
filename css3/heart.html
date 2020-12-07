@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #FFC0CB;
+    }
+
+    
+
+    .square {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        margin: 50px auto;
+        transform: rotate(45deg);
+        position: relative;
+        box-shadow: 15px 15px 2px grey;
+        z-index: 999;
+        margin: 100px auto;
+    }
+
+    .square::before {
+        content: "";
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        position: absolute;
+        top: -100px;
+        left: 0px;
+        border-radius: 50%;
+        z-index: 2;
+
+
+    }
+
+    .square::after {
+        content: "";
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        position: absolute;
+
+        left: -100px;
+        border-radius: 50%;
+        z-index: 2;
+
+    }
+
+    .square:hover {
+        animation: donghua 1s linear infinite forwards;
+    }
+
+    @keyframes donghua {
+        from {
+            transform: scale(1) rotate(45deg);
+        }
+
+        to {
+            transform: scale(1.1) rotate(45deg);
+        }
+    }
+</style>
+
+<body>
+   
+        <div class="square">
+
+        
+    </div>
+</body>
+
+</html>

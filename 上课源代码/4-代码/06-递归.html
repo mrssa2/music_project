@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 递归：如果一个函数在内部可以调用其本身，那么这个函数就是递归函数。  
+        // 简单理解:函数内部自己调用自己, 这个函数就是递归函数
+
+        /* // 定义了一个fn函数  以下fn就是一个递归函数
+        function fn(){
+            console.log("我是fn函数");
+            fn();
+        }
+        // 调用函数
+        fn(); */
+
+        
+        // 递归输出10~1
+        /* for( var i = 10; i >= 1 ;i-- ){
+            console.log( i );
+        } */
+
+        
+        
+        // 第一步:封装一个能解决单一问题的函数(类似循环体)
+        function fn( num ){
+            // 执行的函数体
+            console.log( num );
+
+            num--;
+            // 第三步:在函数中设置递归出口 如果没有递归出口 递归调用无法结束(类似循环中的判断条件) 
+            if( num >= 1 ){
+                // 第二步:在这个函数中调用当前函数 调整问题的规模(类似循环中的变量更新) 
+                fn( num );
+            }
+        }
+
+        fn( 10 );
+    </script>
+</body>
+</html>

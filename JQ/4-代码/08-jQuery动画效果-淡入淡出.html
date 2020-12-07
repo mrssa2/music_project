@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+​
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Document</title>
+   <style>
+       div {
+         width: 150px;
+         height: 300px;
+         background-color: pink;
+         /* 我们需要先使用display:none隐藏元素以后,jQuery的淡入,显示,下滑才可以生效 */
+         display: none;
+      }
+   </style>
+</head>
+​
+<body>
+   <button>淡入效果</button>
+   <button>淡出效果</button>
+   <button>淡入淡出切换</button>
+   <button>修改透明度</button>
+   <div></div>
+​
+   <script src="js/jquery.min.js"></script>
+   <script>
+      $("button").eq(0).click(function(){
+         $("div").stop().fadeIn( 1000 );
+      });
+
+      $("button").eq(1).click(function(){
+         $("div").stop().fadeOut( 1000 );
+      });
+
+      $("button").eq(2).click(function(){
+         $("div").stop().fadeToggle( );
+      });
+
+      $("button").eq(3).click(function(){
+         // $("div").stop().fadeTo("时间","透明度","切换效果",回调函数);
+         // $("div").stop().fadeTo( 1000 );
+         // $("div").stop().fadeTo( 1000 , 1 );
+         // $("div").stop().fadeTo( "",1 );
+         // $("div").stop().fadeTo( 0,1 );
+         // $("div").stop().fadeTo( null,1 );
+         // $("div").stop().fadeTo( undefined,1 );
+         // $("div").stop().fadeTo( 1 );
+         // 注意:  fadeTo里面的第一个参数和第二个参数不要省略,需要写上
+         $("div").stop().fadeTo( 200 , 0.5 );
+      });
+
+   </script>
+</body>
+​
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <style type="text/css">
+      .bigbox {
+        width:420px;
+        height: 100px;
+        margin: 200px auto;
+        position: relative;
+        /* overflow: hidden; */
+      }
+
+      .box {
+        width: 400px;
+        height: 100px;
+        position: absolute;
+        /* left: -80px; */
+      }
+
+      .left {
+        width: 320px;
+        height: 100px;
+        background: url(./ipad.jpeg);
+        float: left;
+        background-size: cover;
+
+      }
+
+      .right {
+        width: 80px;
+        height: 100px;
+        background-color: brown;
+        color: white;
+        float: left;
+        text-align: center;
+        font-size: 16px;
+        line-height: 80px;
+      }
+
+      .dh {
+        transition: all .7;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bigbox">
+      <div class="box">
+        <div class="left"></div>
+        <div class="right">删除</div>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript">
+    window.onload = function() {
+      var box = document.querySelector('.box')
+      var bigbox = document.querySelector('.bigbox')
+
+      // bigbox.ontouchstart = function(e) {
+     
+        box.ontouchmove = function(e) {
+          
+          // this.className = 'box'
+          
+           x = e.changedTouches[0].pageX - bigbox.offsetLeft - box.offsetWidth/2
+          
+          box.style.left = x + 'px'
+          
+          if (box.offsetLeft > 0) {
+            box.offsetLeft = 0
+          } else if (box.offsetLeft < bigbox.offsetWidth - box.offsetWidth) {
+            box.offsetLeft = bigbox.offsetWidth - box.offsetWidth  +  'px'
+          }
+          
+        // }
+      }
+      bigbox.ontouchend = function(e) {
+        
+        this.children[0].className = 'box dh'
+         x1 = e.changedTouches[0].pageX - bigbox.offsetLeft - box.offsetWidth/2
+        if (box.offsetLeft < (bigbox.offsetWidth - box.offsetWidth)/2) {
+          box.style.left = bigbox.offsetWidth - box.offsetWidth + 'px'
+        } else if (box.offsetLeft > (bigbox.offsetWidth - box.offsetWidth)/2) {
+          box.style.left = 0 
+        }
+      }
+
+    }
+  </script>
+</html>

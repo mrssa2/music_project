@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <button>动起来</button>
+    <div></div>
+
+    <script src="js/jquery.js"></script>
+
+    <script>
+        /* 
+            语法: 
+            jQuery对象.animate({
+                css属性名1 : css属性值1,
+                css属性名2 : css属性值2,
+                css属性名3 : css属性值3,
+                ...
+            }[,时间][,切换效果][,回调函数]);
+        */
+       $("button").click(function(){
+            // $("div").css("width",500);
+
+           /* $("div").animate({ "width" : 500 }, 2000 ,"linear", function(){
+               $(this).animate( { height : 300 } );
+           } ); */
+
+           $("div").animate({
+               "width":500,
+               "height":500,
+               "left":300,
+               "top":300
+           })
+       })
+    </script>
+</body>
+</html>

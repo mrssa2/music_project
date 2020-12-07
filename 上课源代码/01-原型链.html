@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 构造函数身上有一个prototype是原型对象(显式原型)
+        // 实例对象身上有一个__proto__是对象原型(隐式原型)
+
+        function Star(uname,age,sex){
+            this.uname = uname;
+            this.age = age;
+            this.sex = sex;
+        }
+        // 通过原型添加方法
+        Star.prototype.sing = function(){
+            console.log( this.uname + "会唱歌");
+        }
+        Star.prototype.dance = function(){
+            console.log( this.uname + "会跳舞");
+        }
+
+        console.dir( Star );
+        console.log( Star.prototype );
+        console.log("");
+        console.log("");
+        console.log("");
+
+        var ldh = new Star("刘德华",17);
+        console.dir( ldh );
+        console.log( ldh.__proto__ );
+        console.log("");
+        console.log("");
+        console.log("");
+
+        // 因为原型对象也是对象,所以对象都会有一个__proto__属性,这个__proto__又可以指向上一层构造函数的prototype
+
+        console.dir( Object );
+        console.log( Object.prototype );
+        console.log( Star.prototype.__proto__ );
+        console.log( Star.prototype.__proto__ === Object.prototype);
+        console.log("");
+        console.log("");
+        console.log("");
+
+        console.log( Object.prototype.__proto__ );
+    </script>
+</body>
+</html>

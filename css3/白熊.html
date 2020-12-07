@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+    background: url(./20201120早上练习图片素材images/bg1.png) no-repeat;
+    animation: walkdonghua 30s  linear infinite;
+    }
+    .big{
+        width: 100%;
+        height: 400px;
+        background: url(./20201120早上练习图片素材images/bg2.png) no-repeat;
+        position: relative;
+        top:200px;
+        animation: walkdonghua 8s  linear infinite;
+    }
+    .bear{
+        width: 200px;
+        height: 100px;
+        background: url(./20201120早上练习图片素材images/bear.png);
+        z-index: 20;
+        position: absolute;
+        top: 186px;
+        transform: translateX(1300px);
+        animation: walkdonghua 1s steps(8) infinite, movedonghua 8s linear forwards;
+    }
+    @keyframes walkdonghua{
+        from{
+            background-position-x: 0px;
+        }
+        to{
+            background-position-x: -1600px;
+        }
+    }
+    @keyframes movedonghua{
+        0%{
+            transform: translateX(0px);
+        }
+        100%{
+            transform: translateX(600px);
+        }
+    }
+</style>
+<body>
+    <div class="big">
+       <div class="bear"></div>
+    </div>
+</body>
+</html>

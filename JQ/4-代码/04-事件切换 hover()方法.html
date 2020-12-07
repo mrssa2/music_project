@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+
+    <script src="js/jquery.min.js"></script>
+    <script>
+        /* $("div").mouseover(function(){
+            console.log("鼠标移上div了");
+        });
+
+        $("div").mouseout(function(){
+            console.log("鼠标移出div了");
+        }) */
+
+        // 事件切换是jQuery提供给我们一个hover方法
+        // hover方法主要用于实现鼠标移上以及鼠标移出两个事件
+
+        // 格式一
+        // jQuery对象.hover(鼠标移上事件匿名函数,鼠标移出事件匿名函数)
+        $("div").hover(function(){
+            console.log("鼠标移上div了");
+        },function(){
+            console.log("鼠标移出div了");
+        })
+
+        // 格式二
+        // jQuery对象.hover(匿名函数)  鼠标移上移出都会触发这个匿名函数
+        /* $("div").hover(function(){
+            console.log("鼠标移上div了");
+        }) */
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .big{
+        width: 600px;
+        height: 300px;
+        border: 1px solid black;
+        margin:  auto;
+    }
+    .wrap{
+        width:200px;
+        height: 200px;
+        float:right;
+        margin-right: 15px;
+        border: 1px solid red;
+       position: relative;
+       margin-top: 40px;
+    }
+    input{
+        width: 200px;
+        height: 200px;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+
+    }
+    .wrap-content{
+        
+        line-height: 200px;
+        text-align: center;
+        font-size: 30px;
+    }
+    .mask{
+        display: inline-block;
+        width: 200px;
+        height: 200px;
+        border: 1px solid red;
+        margin-top: 40px;
+    }
+   img{
+      width: 100%;
+      height: 100%  ;  
+    }
+</style>
+<body>
+    <div class="big">
+       
+        <div class="mask">
+            <img src=""/>
+            <button  >保存</button>
+            <button>删除</button>
+        </div>
+        <div class="wrap">
+            <div class="wrap-content">+</div>
+            <input type="file" id="file">
+        </div>
+    </div>
+</body>
+<script>
+    var image=document.querySelector('img')
+    var file=document.querySelector('#file')
+    file.addEventListener("change",function( ){
+        var fileData = this.files[0];
+    var pattern =/^image/;
+    console.info(fileData.type)
+    if(!pattern.test(fileData.type)){
+        alert("图片格式不正确");
+        return;
+    }
+    var reader = new FileReader();
+    reader.readAsDataURL(fileData); //异步读取文件内容，结果用data:url的字符串形式表示
+        /*当读取操作成功完成时调用*/
+        reader.onload = function(e) {
+          console.log(e); //查看对象
+          console.log(this.result); //要的数据 这里的this指向FileReader（）对象的实例reader
+          image.setAttribute("src", this.result)
+}
+    })
+// file.onchange=function(){
+//     var fileData = this.files[0];
+//     var pattern =/^image/;
+//     console.info(fileData.type)
+//     if(!pattern.test(fileData.type)){
+//         alert("图片格式不正确");
+//         return;
+//     }
+//     var reader = new FileReader();
+//     reader.readAsDataURL(fileData); //异步读取文件内容，结果用data:url的字符串形式表示
+//         /*当读取操作成功完成时调用*/
+//         reader.onload = function(e) {
+//           console.log(e); //查看对象
+//           console.log(this.result); //要的数据 这里的this指向FileReader（）对象的实例reader
+//           image.setAttribute("src", this.result)
+// }
+// }
+</script>
+</html>

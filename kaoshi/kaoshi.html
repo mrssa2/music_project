@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin:0;
+        
+    }
+    .big {
+        width: 480px;
+        height: 100px;  
+        position: relative;
+    }
+
+    .img1 {
+        width: 100px;
+        height: 100px;
+        background: url(./ipad.jpeg) no-repeat   ;
+        background-size:100% 100%;
+        float: left;
+        
+    }
+    .font{
+        float: left;
+        width: 80px;
+        height: 50px;
+      
+    }
+    .delete{
+      float:right;
+        border: 1px solid red;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      
+     
+    }
+    .delete span{
+        font-size: 20px;
+        line-height: 100px;
+        margin-left: 30px;
+    color: white;
+    }
+    .two{
+        position:fixed;
+        left:350px;
+        top:80px;
+        color:#969799;
+     }
+  .wh{
+      width: 50px;
+      height: 50px;
+      float: left;
+     
+ 
+  }
+  p{
+      margin-top: 40px;
+  }
+</style>
+
+<body>
+    <div class="wh"></div>
+    <div class="big">
+       
+        <div class="img1"></div>
+        <div class="font">
+            <span>商品标题</span>
+            <span>描述信息</span>
+            <p>$2.00</p>
+        </div>
+        
+        <div class="two">x2</div>
+        <div class="delete"><span>删除</span></div>
+    </div>
+  
+</body>
+<script>
+    window.onload=function(){
+        var big=document.querySelector('.big')
+        var del=document.querySelector('del')
+        var stus = true;
+    big.ontouchstart=function(e){
+  
+       x0 = event.touches[0].clientX;
+     
+    }
+    big.ontouchmove=function(e){
+
+        x= event.touches[0].clientX - x0;
+        console.log(x);
+        if(stus){
+						del.style.transform = "translate("+-52+"px)";
+						del.style.transition = 'all .7s';
+						stus=!stus;
+				}else{
+                    del.style.transform = "";
+                    stus=!stus;
+				}
+			
+   
+}
+    }
+   
+        
+    
+      
+</script>
+
+</html>

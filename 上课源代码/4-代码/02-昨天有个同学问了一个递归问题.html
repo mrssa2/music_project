@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 递归:函数在该函数体里面又调用该函数
+        var num = 10;
+        (function fn(){
+            num++;
+            if( num <= 20 ){
+                fn();
+            }
+            console.log("当前num的值为:" + num);
+        })();
+    </script>
+</body>
+</html>

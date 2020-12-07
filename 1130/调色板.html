@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p><input type="range" min="0" max="255" value="0"></p>
+    <p><input type="range" min="0" max="255" value="0"></p>
+    <p><input type="range" min="0" max="255" value="0"></p>
+</body>
+<script>
+    var input=document.querySelectorAll("input")
+    var body= document.querySelector("body")
+    var r= 0;
+    var g = 0;
+    var b = 0;
+    input[0].oninput=function(){
+       r = this.value;
+        console.log(r)
+        body.style.backgroundColor=`rgb(${r},${g},${b})`
+    }
+    input[1].oninput=function(){
+       g = this.value;
+        console.log(g)
+        body.style.backgroundColor=`rgb(${r},${g},${b})`
+    }
+    input[2].oninput=function(){
+        b = this.value;
+        console.log(b)
+        body.style.backgroundColor=`rgb(${r},${g},${b})`
+    }
+    body.style.backgroundColor=`rgb(${r},${g},${b})`
+   
+</script>
+</html>

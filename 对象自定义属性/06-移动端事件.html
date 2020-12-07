@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .big{
+      position: relative;
+    }
+    .box{
+      width: 130px;
+      height: 130px;
+      background-color: #e4393c;
+      margin: 100px auto 0;
+    }
+
+  </style>
+</head>
+<body>
+  
+  <div id="box" class="box"></div>
+
+  <script>
+
+    window.onload = function () {
+
+      var box = document.getElementById('box');
+
+      //手指开始触碰
+      box.ontouchstart = function (e) {
+        // console.log('e ==> ', e);
+        //获取手指在屏幕坐标
+        var x = e.changedTouches[0].pageX;
+        var y = e.changedTouches[0].pageY;
+        console.log('x ==> ', x);
+        console.log('y ==> ', y);
+      }
+
+      //手指移动时
+      box.ontouchmove = function (e) {
+        var x0 = e.changedTouches[0].pageX;
+        var y0 = e.changedTouches[0].pageY;
+        console.log('x0 ==> ', x0);
+        console.log('y0 ==> ', y0);
+      }
+
+      //手指松开时
+      box.ontouchend = function (e) {
+        console.log('e ==> ', e);
+      }
+
+      //取消手指触摸事件, 在浏览器无法模式
+      box.ontouchcancel = function () {
+
+      }
+
+    }
+
+  </script>
+</body>
+</html>

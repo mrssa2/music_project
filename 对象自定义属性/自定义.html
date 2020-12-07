@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var keysConfig = Object.getOwnPropertyDescriptor(game);
+    Object.defineProperties(game,{
+        author:{
+            value:'mark',
+            writable:true,
+            configurable:false,
+            enumerable:false
+        },
+    })
+    //冻结，不能添加，删除，修改属性
+    Object.freeze(duck);
+    //添加属性
+    duck.nongchang = 'QQ牧场';
+    //删除属性
+    delete duck.price;
+    //判断对象是否被密封
+    var isS = Object.isSealed(duck);
+    
+</script>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .big {
+        width: 1000px;
+        height: 500px;
+        margin: 80px auto;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .imc img {
+        width: 1000px;
+        height: 500px;
+        float: left;
+        /* position: absolute; */
+    }
+
+    ul {
+        width: 500%;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    .cir {
+        position: absolute;
+        top: 450px;
+        right: 100px;
+    }
+
+    .cir span {
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: grey;
+        float: left;
+        margin-left: 10px;
+
+    }
+
+
+    .jian .left {
+        width: 42px;
+        height: 70px;
+        right: 0;
+        top: 50%;
+        background: url(./作业-小米淡入淡出轮播图/images/icon-slides.png) no-repeat;
+        position: absolute;
+        background-position: -42px 0;
+    }
+
+    .jian .right {
+        width: 42px;
+        height: 70px;
+        left: 0;
+        top: 50%;
+        background: url(./作业-小米淡入淡出轮播图/images/icon-slides.png) no-repeat;
+        position: absolute;
+    }
+
+    .cir .current {
+        background-color: white;
+    }
+</style>
+
+<body>
+    <div class="big">
+        <div class="imc">
+            <ul>
+                <li><img src="./作业-小米淡入淡出轮播图/images/banner01.jpg" alt=""></li>
+                <li><img src="./作业-小米淡入淡出轮播图/images/banner02.jpg" alt=""></li>
+                <li><img src="./作业-小米淡入淡出轮播图/images/banner03.jpg" alt=""></li>
+                <li><img src="./作业-小米淡入淡出轮播图/images/banner04.jpg" alt=""></li>
+
+            </ul>
+        </div>
+        <div class="cir">
+            <span class="item current"></span>
+            <span class="item"></span>
+            <span class="item"></span>
+            <span class="item"></span>
+        </div>
+        <div class="jian">
+            <span class="left"></span>
+            <span class="right"></span>
+        </div>
+
+        <!-- <span  class="right"> <img src="./作业-小米淡入淡出轮播图/images/icon-slides.png" alt=""></span> -->
+
+
+    </div>
+</body>
+<script src="./jquery.js"></script>
+<script>
+    $(function () {
+        var speed = 0;
+        var i = 0;
+        function go() {
+            timer = setInterval(function () {
+                show()
+                i++;
+                i = i++;
+                if (i == 4) {
+                    i = 0;
+                }
+
+
+            }, 1000)
+        }
+
+
+
+
+        $(".big").hover(function () {
+            clearInterval(timer)
+        }, function () {
+            go()
+        })
+
+
+
+
+        function show() {
+            $('li').eq(i).fadeIn(300).siblings("li").stop().fadeOut(300)
+            $('.item').eq(i).addClass('current').siblings('.item').removeClass('current')
+        }
+
+
+
+
+
+        $(".right").click(function () {
+            i--;
+            if (i <=-1) {
+                i = 4;
+            }
+            show()
+            // $('li').eq(i).fadeIn(300).siblings("li").stop().fadeOut(300)
+            // $($("li")[i]).stop().fadeTo(500, 1).siblings("li").stop().fadeTo(500, 0);
+            console.log(i)
+        })
+        $(".left").click(function () {
+            i++;
+            if (i >4) {
+                i = 0;
+            }
+            show()
+            // $('li').eq(i).fadeIn(300).siblings("li").stop().fadeOut(300)
+            // $($("li")[i]).stop().fadeTo(500, 1).siblings("li").stop().fadeTo(500, 0);
+            console.log(i)
+
+        })
+        $(".item").click(function () {
+            $(".item").value = i
+        })
+        show()
+        go()
+
+    })
+
+</script>
+
+</html>

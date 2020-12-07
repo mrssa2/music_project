@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: black;
+        }
+        img{
+            vertical-align: bottom;
+        }
+        li{
+            list-style: none;
+        }
+        .box{
+            width: 640px;
+            height: 404px;
+            border:1px solid white;
+            margin:100px auto;
+        }
+        .box ul li{
+            float: left;
+            width: 200px;
+            height: 186px;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li><img src="images/01.jpg"/></li>
+            <li><img src="images/02.jpg"/></li>
+            <li><img src="images/03.jpg"/></li>
+            <li><img src="images/04.jpg"/></li>
+            <li><img src="images/05.jpg"/></li>
+            <li><img src="images/06.jpg"/></li>
+        </ul>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script>
+        /* $(".box ul li").mouseover(function(){
+            $(this).siblings("li").stop().fadeTo( 400 , 0.5 );
+        });
+
+        $(".box ul li").mouseout(function(){
+            $(this).siblings("li").stop().fadeTo( 400 , 1 );
+        }) */
+
+        $(".box ul li").hover(function(){
+            $(this).siblings("li").stop().fadeTo( 400 , 0.5 );
+        },function(){
+            $(this).siblings("li").stop().fadeTo( 400 , 1 );
+        })
+    </script>
+</body>
+</html>

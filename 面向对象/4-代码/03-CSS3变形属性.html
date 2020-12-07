@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* transition过渡属性 */
+        /* transition:需要过渡CSS属性名 过渡时间; */
+        /* transition:all 过渡时间; */
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .father{
+            width: 500px;
+            height: 500px;
+            background: pink;
+            margin:150px auto;
+        }
+        .father .son{
+            width: 100px;
+            height: 100px;
+            background: skyblue;
+            transition: transform 3s;
+        }
+        .father:hover .son{
+            /* transform: translate位移 */
+            /* transform: rotate旋转 */
+            /* transform: skew倾斜 */
+            /* transform: scale缩小放大元素 */
+
+            /* 如果scale里面的数值是1代表原始尺寸,也就不变化 */
+            /* transform: scaleX(2); 放大宽度至原来的2倍 */
+            /* transform: scaleX(0.5); 缩小宽度至原来一半*/
+            transform: scaleX(0);
+
+            /* transform: scaleY(2); 放大高度度至原来的2倍*/
+            /* transform: scaleY(0.3); 缩小宽度至原来0.3倍*/
+            /* transform: scaleY(0); */
+
+            /* transform: scale(2); 宽度高度同时放大原来2倍 */
+        }
+
+        .pic{
+            width: 150px;
+            height: 150px;
+            border:1px solid red;
+        }
+        .pic img{
+            transform:scaleX(0);
+            transition:transform 0.2s;
+        }
+        .pic:hover img{
+            transform:scaleX(1);
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+        这是son下面的内容
+    </div>
+
+    <div class="pic">
+        <img src="./js翻牌游戏/images/1.png"/>
+    </div>
+</body>
+</html>

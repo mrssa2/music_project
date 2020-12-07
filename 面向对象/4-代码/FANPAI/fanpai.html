@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>js记忆翻牌小游戏</h1>
+    <div class="game"></div>
+</body>
+<script>
+    Game.prototype.init = function(options){
+        this.initData(options);
+        this.render();
+        this.handler();
+    }
+    Game.prototype.initData = function(options){
+        this.el = options.el;
+        this.level = options.level;
+        this.blocks = Math.pow(this.level*2,2);
+        this.dataArr = this.getRandomArr();
+        console.log(el)
+    }
+    Game.prototype.render = function(){
+        var oblockwidth = this.el.offsetWidth /(this.level*2) - 4;
+        var oblockHeight = this.el.offsetHeight / (this.level *2) -4 ;
+        for(var i = 0; i<this.blocks; i++){
+            var oblock = document.createElement("div");
+            oblock.className = 'block';
+            oblock.style.width = oblockwidth +"px";
+            oblock.style.height = oblockHeight + "px";
+            oblock.setAttribute('data-index', this.dataArr[i]);
+            var oPic = document.createElement("img");
+            oPic.className ="pic";
+            oPic.src = "images/" + this.dataArr[i] +'.png';
+            oblock.appendChild(oPic);
+            this.el.appendChild(oblock);
+        }
+    }
+    Game.prototype.getRandomArr =function(){
+
+    }
+    // Game.prototype.getPicsArr=function(){
+
+    // }
+    // Game.prototype.shuffle = function(arr){
+
+    // }
+    // Game.prototype.handler = function (){
+
+    // }
+    // Game.prototype.judegArrFun = function(arr){
+
+    // }
+    var game = new Game({
+        el:document.querySelector('.game'),
+        level:2,
+    });
+    
+</script>
+</html>

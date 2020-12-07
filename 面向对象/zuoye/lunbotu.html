@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding:0;
+    }
+    .banners{
+      width: 820px;
+      /* height: 340px; */
+        margin: 100px  auto ;
+        overflow: hidden;
+      
+    }
+    img{
+        vertical-align: bottom;
+    }
+    li{
+        list-style: none;
+      
+    }
+    .banners_img  {
+        height: 340px;
+       position: relative;
+    }
+    .banners_img ul {
+        width: 500%;
+      position: absolute;
+    }
+    .banners_img ul li{
+       float: left;
+        width: 820px;
+       height: 100%;
+       margin-left: 0;
+      
+    }
+    .font{
+       height: 40px;
+      
+        background-color:#E3E2E2 ;
+
+    }
+    span{
+       height: 40px;
+      width: 160px;
+      text-align: center;
+      
+        line-height: 40px;
+        float: left;
+       
+    }
+    /* span:hover{
+        border-bottom: 2px solid  #CEA861;
+        background-color: white;
+    } */
+    .current{
+        border-bottom: 2px solid  #CEA861;
+        background-color: white;
+    }
+    a{
+       color:red;
+    }
+</style>
+<body>
+    <div class="banners">
+        <div class="banners_img">
+            <ul>
+                <li class="date"><a href="*"><img src="./images/1.jpg" alt=""></a></li>
+                <li><a href="*"><img src="./images/2.jpg" alt=""></a></li>
+                <li><a href="*"><img src="./images/3.jpg" alt=""></a></li>
+                <li><a href="*"><img src="./images/4.jpg" alt=""></a></li>
+                <li><a href="*"><img src="./images/5.jpg" alt=""></a></li>
+            </ul>
+            
+        </div>
+        <div class="font">
+            <a href="">nm</a>
+            <span class="current">FPX冠军皮肤</span>
+            <span>魔女 婕拉 至臻</span>
+            <span>2020LPL春季赛季后赛</span>
+            <span>挑战主播赢现金</span>
+            <span>每周限时优惠</span>
+        </div>
+    </div>
+</body>
+<script src="./animate.js"></script>
+<script>
+    var banners = document.querySelector('.banners')
+    var banners_img = document.querySelector('.banners_img')
+    var span = document.querySelectorAll('span')
+    var li = document.querySelectorAll('li')
+   var ul = document.querySelector('ul')
+    
+    function goto(index){
+        for(var i = 0 ; i <span.length;i++){
+            span[i].removeAttribute("class")
+        }
+        
+        span[index].className="current";
+        animate(ul, -banners_img.offsetWidth*index )
+    }
+    var num =0;
+    function autoplay(){
+        num++;
+        if(num==5){
+            num=0;
+        }
+       goto(num);
+    }
+    banners.onmouseover=function(){
+        clearInterval(timer)
+    }
+    banners.onmouseout=function(){
+        timer=setInterval(autoplay,1500)
+    }
+var timer = setInterval("autoplay()",1500)
+    for(var j = 0 ; j<span.length;j++){
+        span[j].setAttribute('data-index',j)
+        span[j].onmouseover = function(){
+            var currentIndex=this.getAttribute('data-index')
+            goto(currentIndex);
+            num = currentIndex;
+        }
+    }
+  d
+</script>
+</html>

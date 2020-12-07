@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 继承:子承父业,子构造函数可以继承父构造函数中的属性和方法,子构造函数也可以有自己独特的属性和方法
+
+        // 如果多个对象公共有的属性和方法,我们才会放在父类(父构造函数)里面
+
+        // new关键字做了哪些事情?
+        // 1. 创建一个空对象
+        // 2. 把this指向这个空对象
+        // 3. 执行构造函数里面的代码,给对象初始化相关属性
+        // 4. 返回这个对象
+        
+        // 定义一个父构造函数
+        function Father(uname,age){
+            this.uname = uname;
+            this.age = age;
+        }
+        
+        // 再定义一个子构造函数
+        function Son(uname, age ,score ){
+            // 通过call方法改变Father里面指向实现了属性的继承
+            Father.call( this , uname , age );
+
+            // 子构造函数,有自己一个独特的属性,分数
+            this.score = score;
+        }
+
+        var father = new Father("王叔叔",40);
+        console.log( father );
+
+        var son = new Son("大头儿子" , 6 , 90);
+        console.log( son );
+    </script>
+</body>
+</html>

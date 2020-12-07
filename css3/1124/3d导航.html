@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+      
+       
+        margin: 100px auto;
+        position: relative;
+        transition: all 1s;
+        transform-style: preserve-3d;
+        text-align: center;
+        float: left;
+        transform-origin: top center ;
+        
+    }
+    .top{
+        width: 100px;
+        height: 30px;
+        background-color: pink;
+        
+        
+    }
+    .bottom{
+        width: 100px;
+        height: 30px;
+        background-color: purple;
+        transform: rotateX(90deg);
+        transform-origin: top center ;
+    }
+    .box:hover  {
+        transform: rotateX(-90deg);
+       
+    }
+</style>
+<body>
+    <div class="box">
+        <div class="top">睡觉</div>
+        <div class="bottom">游戏</div>
+    </div>
+    <div class="box">
+        <div class="top">睡觉</div>
+        <div class="bottom">游戏</div>
+    </div>
+    <div class="box">
+        <div class="top">睡觉</div>
+        <div class="bottom">游戏</div>
+    </div>
+    <div class="box">
+        <div class="top">睡觉</div>
+        <div class="bottom">游戏</div>
+    </div>
+</body>
+</html>

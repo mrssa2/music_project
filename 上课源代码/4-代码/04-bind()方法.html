@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 函数名.bind( this指向, 形参1, 形参2 ... ) 
+        // 注意:bind()方法不会调用函数, bind()返回改变this以后函数
+
+        var uname = "zhangsan";
+        function fn( a , b){
+            console.log( this );
+            console.log( this.uname );
+            console.log( a+b );
+            console.log( );
+        }
+
+        var obj = {
+            uname : "李四"
+        };
+
+        fn.call( obj , 10 , 20 );
+        console.log("");
+        console.log("");
+
+        fn.apply( obj , [10 , 20] );
+        console.log("");
+        console.log("");
+        
+        var result = fn.bind( obj , 10 , 20 );
+        result();
+        console.log("");
+        console.log("");
+        console.log("");
+
+        window.setTimeout( function ( a , b ){
+            console.log("延时器里面的this");
+            console.log( this );
+            console.log( a+b );
+        }.bind( obj , 10 , 50 ), 3000 );
+
+
+        // call(),apply()和bind()都可以改变this的指向, bind()不会执行函数体,而call()和apply()会执行函数体
+        // call(),apply()apply的第二个参数是一个数组,而call的第二个参数代表第一个实际参数
+    </script>
+</body>
+</html>

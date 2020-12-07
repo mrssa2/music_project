@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 2.深拷贝拷贝多层,每一级别的数据都会拷贝
+        var obj1 = {
+            id    : 1,
+            uname : "张三",
+            msg   : {
+                age : 18
+            },
+            color:["pink","red"]
+        };
+
+        // 需要封装一个拷贝函数  就是把oldObj旧对象拷贝到newObj新对象中
+        function deepCopy( newObj,  oldObj ){
+            for(  k in oldObj  ){
+                var item = oldObj[k];
+
+                // 如果是基本数据类型,直接赋值
+                // newObj[k] = item;
+                // console.log( item );
+                // console.log( typeof item );
+                // console.log("");
+                // console.log( Array.isArray( item ) );
+
+                // instanceof运算符  可以判断某个变量是否为某个构造函数的实例
+                // console.log( item instanceof Object );
+
+                if( Array.isArray( item ) ){
+                    // 如果是数组
+                    newObj[k] = [];
+                    deepCopy( newObj[k] , item );
+                }else if( item instanceof Object ){
+                    // 如果是对象
+                    newObj[k] = {};
+                    deepCopy( newObj[k] , item );
+                }else{
+                    // 如果是基本数据类型
+                    newObj[k] = item;
+                }
+            }
+        }
+
+        
+        var obj2 = {};
+        deepCopy( obj2, obj1 );
+        console.log( obj1 );
+        console.log( obj2 );
+        console.log("");
+        console.log("");
+
+        obj1.msg.age = 28;
+        obj2.color[0] = "blue";
+        console.log( obj1 );
+        console.log( obj2 );
+    </script>
+</body>
+</html>

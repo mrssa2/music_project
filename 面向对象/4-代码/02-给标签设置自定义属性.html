@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>我的div</div>
+    <button>设置自定义属性</button>
+    <button>获取自定义属性</button>
+    <button>设置DOM对象属性</button>
+    <button>获取DOM对象属性</button>
+
+    <script>
+        var oDiv = document.querySelector("div");
+        var btns = document.querySelectorAll("button");
+        btns[0].onclick = function(){
+            oDiv.setAttribute("data-abc","abcabc");
+            oDiv.setAttribute("id","myDiv");
+        }
+
+        btns[1].onclick = function(){
+            console.log( oDiv.getAttribute("data-abc") );
+            console.log( oDiv.getAttribute("id") );
+        }
+        
+        btns[2].onclick = function(){
+            // oDiv是一个DOM对象,那么dom就会自己属性和方法
+            // 因为DOM对象也是一个对象,所以我们也可以给这个添加属性和方法
+            oDiv.nimeide = "你妹的,你大爷的";
+            oDiv.sayHello = function(){
+                console.log("他妹的~~");
+            }
+            console.dir( oDiv );
+        }
+
+
+        btns[3].onclick = function(){
+            console.log( oDiv.nimeide );
+            oDiv.sayHello();
+        }
+    </script>
+</body>
+</html>

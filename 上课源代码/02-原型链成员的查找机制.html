@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 原型链成员的查找机制
+        // 任何构造函数都有原型对象,也就是prototype属性,任何原型对象也是一个对象,该对象就有__proto__属性,这样一层一层往上找,就形成了一条链,我们称此为原型链;
+        // JavaScript 的成员查找机制(规则):
+        // 当访问一个对象的属性（包括方法）时，首先查找这个对象自身有没有该属性。
+        // 如果没有就查找它的原型（也就是 __proto__指向的 prototype 原型对象）。
+        // 如果还没有就查找原型对象的原型（Object的原型对象）。
+        // 依此类推一直找到 Object 为止（null）。
+        // __proto__对象原型的意义就在于为对象成员查找机制提供一个方向，或者说一条路线。
+        // 如果多个原型对象同时有同一个属性(或者方法),遵循就近原则
+
+
+
+        function Star(uname,age,sex){
+            this.uname = uname;
+            this.age = age;
+            this.sex = sex;
+            // this.height = "2m";
+
+            this.sayHello = function(){
+                console.log("hello,摩托");
+            }
+        }
+        // 通过原型添加方法
+        Star.prototype.sing = function(){
+            console.log( this.uname + "会唱歌");
+        }
+        Star.prototype.dance = function(){
+            console.log( this.uname + "会跳舞");
+        }
+        Star.prototype.sayHello = function(){
+            console.log( "哈罗~" );
+        }
+        
+
+        Star.prototype.height = "1.8m";
+
+        Object.prototype.height = "2.8m";
+        Object.prototype.sayHello = function(){
+            console.log("摩拜");
+        }
+
+        var ldh = new Star("刘德华",23,"男");
+        console.log( ldh.sex );
+        console.log( ldh.height );
+        ldh.sayHello();
+        console.log("");
+        console.log("");
+        console.log("");
+
+        // 现在我们就可以理解一下数组的toString()方法
+        var arr = [10,20,30,40,50];
+        console.log( arr.toString() );
+        console.log( arr.__proto__ );
+        console.log("");
+        console.log("");
+        console.log("");
+
+        var v1 = null;
+        // console.log( v1.toString() );
+        console.dir( v1 );
+        console.log("");
+        console.log("");
+        console.log("");
+
+        console.dir( Array );
+
+        console.log( arr.height );
+        arr.sayHello();
+    </script>
+</body>
+</html>

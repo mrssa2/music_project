@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .bigbox{
+        width: 520px;
+        margin: 100px  auto 0;
+    }
+    .fot{
+        
+        height: 150px;
+        width: 520px;
+    }
+    .big{
+        width: 520px;
+        height: 40px;
+        
+        background: gray;
+    }
+    span{
+        display: inline-block;
+        height: 40px;
+       width: 100px;
+        font-size: 20px;
+    
+       text-align: center;
+       line-height: 40px;
+    }
+</style>
+<body>
+    <div class="bigbox">
+
+    
+    <div class="big">
+        <span>商品介绍</span>
+        <span>规格与包装</span>
+        <span>售后保障</span>
+        <span>商品评价</span>
+        <span>手机社区</span>
+    </div>
+    <div class="fot">
+        <p>商品介绍</p>
+        <!-- <p>规格与包装</p>
+        <p>售后保障</p>
+        <p>商品评价</p>
+        <p>手机社区</p> -->
+    </div>
+</div>
+</body>
+<script src="./jquery.js"></script>
+<script>
+    $('span').mouseover(function(){
+        $(this).css("backgroundColor","red").siblings("span").css("backgroundColor","grey");
+        $('.bigbox .fot').text($(this).text())
+        console.log($(this).text())
+    })
+</script>
+</html>

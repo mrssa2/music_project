@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: black;
+    }
+    .big{
+        width: 400px;
+        height:400px;
+        margin: 200px auto;
+       position: relative;
+    }
+    P{
+        text-align: center;
+        font-size: 20px;
+        color: yellow;
+        position:absolute;
+        top: 65px;
+        left: 35px;
+       text-shadow:2px 2px 10px yellow;
+    }
+    .cir{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border: 2px solid grey;
+        position:absolute;
+        background-color: black;
+        border-bottom:3px solid yellow;
+        border-right:3px solid yellow;
+        transform: rotate(45deg);
+        position: relative;
+        animation: donghua 1s linear infinite  ;
+    }
+    .cir::before{
+        content: "";
+        width: 25px;
+        height:25px;
+        border-radius: 50%;
+        background-color: yellow;
+        position: absolute;
+        top: 151px;
+        left: 11px;
+        box-shadow:0px 0px 5px 2px yellow;
+    }
+    @keyframes donghua {
+        from{
+            transform: rotate(0deg);
+        }
+        to{
+            transform: rotate(360deg);
+        }
+    }
+</style>
+<body>
+    <div class="big">
+        
+        <div class="cir"></div>
+        <p>L O A D I N G</p>
+    </div>
+</body>
+</html>

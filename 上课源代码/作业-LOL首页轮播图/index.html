@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style:none;
+        }
+        img{
+            /* 垂直对齐方式,默认是基线对齐,如果是基线对齐,图片底部会出现缝隙 */
+            vertical-align: bottom;
+        }
+        .banner{
+            width: 820px;
+            margin: 50px auto;
+        }
+        .banner .banner_imgs{
+            width: 820px;
+            height: 340px;
+            overflow: hidden;
+        }
+        .banner .banner_imgs ul {
+            width: 500%;
+            height: 340px;
+            /* CSS3过渡属性 */
+            transition: margin-left 1s;
+        }
+        .banner .banner_imgs ul li{
+            float: left;
+        }
+        .banner .nav{
+            height: 40px;
+            background: #e3e2e2;
+        }
+        .banner .nav ul li{
+            width: 20%;
+            float: left;
+            text-align: center;
+            height: 38px;
+            line-height: 38px;
+            cursor: pointer;
+            font-size:14px;
+        }
+        .banner .nav ul li.active{
+            background: #f7f6f6;
+            color:#ae9372;
+            border-bottom: 2px solid #d2b070;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <!-- 上部分 -->
+        <div class="banner_imgs">
+            <ul>
+                <li><a href="#"><img src="images/1.jpg"/></a></li>
+                <li><a href="#"><img src="images/2.jpg"/></a></li>
+                <li><a href="#"><img src="images/3.jpg"/></a></li>
+                <li><a href="#"><img src="images/4.jpg"/></a></li>
+                <li><a href="#"><img src="images/5.jpg"/></a></li>
+            </ul>
+        </div>
+        <!-- 下部分 -->
+        <div class="nav">
+            <ul>
+                <li class="active">FPX冠军皮肤</li>
+                <li>魔女 婕拉 至臻</li>
+                <li>2020LPL春季赛季后赛</li>
+                <li>挑战主播赢现金</li>
+                <li>每周限时优惠</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // 封装一个函数goto,可以根据索引号,滚动到指定的图片,以及高亮对应的.nav里面某个li
+        // 索引号要求从0开始,0代表第一张图片
+        var bannerImgsUl = document.querySelector(".banner_imgs ul");
+        var banner_imgs = document.querySelector(".banner_imgs");
+        var lis = document.querySelectorAll(".nav ul li");
+
+        function goto( index ){
+            // 设置的左外边距
+            bannerImgsUl.style.marginLeft = -banner_imgs.offsetWidth*index+"px";
+
+            /* for(var i = 0;i<lis.length;i++ ){
+                lis[i].removeAttribute("class");
+            } */
+
+            // 移除具有.active元素的类名
+            document.querySelector(".nav ul li.active").removeAttribute("class");
+
+            // 高亮对应li
+            lis[index].className = "active";
+        }
+        // 给.nav里面每个li绑定鼠标移上事件
+        for(var i = 0;i<lis.length;i++ ){
+            lis[i].setAttribute("data-index",i);
+            lis[i].onmouseover = function(){
+                var index = this.getAttribute("data-index") ;
+                goto(index);
+                // 为了解决,鼠标移上li以后,下次自动轮播不同步问题
+                currentIndex = index;
+            }
+        }
+
+        // 定义一个变量,保存当前轮播到第几张
+        var currentIndex = 0;
+
+        // 定义一个全局变量,保存当前定时器的标识符
+        var timer = null;
+        // 自动轮播功能
+        function autoPlay(){
+            if( timer == null ){
+                // 开启一个定时器
+                timer = window.setInterval(function(){
+                    currentIndex++;
+                    // 边界判断第一种方法
+                    /* if( currentIndex > lis.length-1 ){
+                        currentIndex = 0;
+                    } */
+                    // 边界判断第二种方法
+                    currentIndex = currentIndex % lis.length;
+                    goto( currentIndex );
+                },1500);
+            }
+        }
+        autoPlay();
+        // 鼠标移上.banner盒子以后,清除定时器
+        var banner = document.querySelector(".banner");
+        banner.onmouseover = function(){
+            // 清除定时器
+            window.clearInterval( timer );
+            timer = null;
+        }
+        // 鼠标移上.banner盒子以后,重新开启定时器
+        banner.onmouseout = function(){
+            autoPlay();
+        }
+    </script>
+</body>
+</html>

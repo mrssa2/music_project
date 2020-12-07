@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .big{
+        position: relative;
+        text-align: center;
+        
+    }
+    .left{
+        width: 225px;
+        height: 300px;
+        background: url(./CSS3第三天作业素材/images/bg.png);
+        position:absolute;
+        left:535px;
+        border: 1px solid black;
+        transform-origin: center left;
+        transition: all 1s ease 0s;
+   
+    }
+    
+    .zong:hover .left{
+        transform: rotateY(180deg) ;
+    }
+    .zong:hover .right{
+        transform: rotateY(180deg) ;
+    }
+    .left::before{
+        content: "";
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 1px solid black;
+        position: absolute;
+        top: 150px;
+        left: 195px;
+    }
+    .right{
+        width: 225px;
+        height: 300px;
+        background: url(./CSS3第三天作业素材/images/bg.png);
+        position:absolute;
+        right: 535px;
+        border: 1px solid black;
+        transform-origin: center right;
+        transition: all 1s ease 0s;
+    }
+    .right::before{
+        content: "";
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 1px solid black;
+        position: absolute;
+        top: 150px;
+        right: 195px;
+    }
+</style>
+<body>
+    <div class="big">
+        <div class="zong">
+    <div class="left"></div>
+    <div class="right"></div></div>
+    <img src="./CSS3第三天作业素材/images/3.jpg" alt="">
+</div>
+</body>
+</html>

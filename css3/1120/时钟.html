@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .big{
+        width: 300px;
+        height: 300px;
+        border: 10px solid #CCCCCC;
+        border-radius: 50%;
+        position: relative;
+    }
+    .cir{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #CCCCCC;
+        position: absolute;
+        top: 140px;
+        left: 140px;
+        z-index: 999;
+    }
+    .time{
+        width: 15px;
+        height: 30px;
+        background-color: #cccccc;
+        position: absolute;
+        top: 0px;
+        left: 140px;
+    }
+    .time::before{
+        content: "";
+        width: 15px;
+        height: 30px;
+        background-color: #cccccc;
+        transform: rotate(90deg);
+        position: absolute;
+        top: 130px;
+        left: 136px;
+    }
+    .time::after{
+        content: "";
+        width: 15px;
+        height: 30px;
+        background-color: #cccccc;
+        transform: rotate(90deg);
+        position: absolute;
+        top: 130px;
+        left: -130px;
+    }
+    .time1{
+        width: 15px;
+        height: 30px;
+        background-color: #cccccc;
+        position: absolute;
+        top: 266px;
+        left: 140px;
+    }
+    .second{
+        width: 2px;
+        height: 90px;
+        background-color: blue;
+        position:absolute;
+        top: 51px;
+        left: 149px;
+        z-index: 3;
+        animation: dong 60s linear infinite;
+        transform-origin: center bottom;
+        
+    }
+    .min{
+        width: 4px;
+        height: 90px;
+        background-color: green;
+        position:absolute;
+        top: 51px;
+        left: 148px;
+        z-index: 2;
+        animation: dong 3600s linear infinite;
+        transform-origin: center bottom;
+    }
+    .hour{
+        width: 8px;
+        height: 90px;
+        background-color: red;
+        position:absolute;
+        top: 51px;
+        left: 146px;
+       
+        animation: dong 4*3600s linear infinite;
+        transform-origin: center bottom;
+        
+    }
+    @keyframes dong {
+        from{
+            transform:rotate(0deg);
+        }
+        to{
+            transform:  rotate(360deg);
+        }
+    }
+</style>
+<body>
+    <div class="big">
+        <div class="cir"></div>
+        <div class="time"></div>
+        <div class="time1"></div>
+        <div class="second"></div>
+        <div class="min"></div>
+        <div class="hour"></div>
+
+    </div>
+</body>
+</html>

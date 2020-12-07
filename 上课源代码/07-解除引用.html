@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 解除数组引用  核心原理,使用一些可以"得到新数组"的内置函数
+        
+        /* var arr1 = [50,60,70];
+        var arr2 = arr1.concat();
+        console.log( arr1, arr2 );
+
+        arr2[0] = 500;
+        console.log( arr1, arr2 );
+        
+        arr1[1] = 666;
+        console.log( arr1, arr2 ); */
+
+        /* var arr1 = [50,60,70,80,90];
+        var arr2 = arr1.slice(0);
+        console.log( arr1, arr2 );
+
+        arr2[0] = 55;
+        arr1[1] = 68;
+        console.log( arr1, arr2 ); */
+
+        /* var arr1 = [50,60,70,80,90];
+        var arr2 = [];
+        for(var i = 0; i < arr1.length; i++){
+            arr2.push( arr1[i] );
+        }
+
+        console.log( arr1, arr2 );
+
+        arr2[0] = 55;
+        arr1[1] = 68;
+        console.log( arr1, arr2 ); */
+
+        // 解除对象引用
+        var obj1 = {
+            uname : "张三",
+            age : 23,
+            sayHello:function(){
+                console.log("hello hello hello");
+            }
+        };
+
+        var obj2 = {};
+
+        // for...in可以遍历数组或者对象
+        for( attr in obj1 ){
+            obj2[attr] = obj1[attr];
+        }
+        console.log( obj1 )
+        console.log( obj2 );
+        console.log("");
+
+        obj2.uname = "李四";
+        console.log( obj1 );
+        console.log( obj2 );
+        console.log("");
+        
+        obj1.sayHi = function(){
+            console.log( "hi~hi~hi");
+        }
+
+        console.log( obj1 );
+        console.log( obj2 );
+    </script>
+</body>
+</html>

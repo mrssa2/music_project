@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background:url(images/bg.jpg) center top;
+        }
+        .box{
+            width: 1089px;
+            height: 429px;
+            margin:0 auto;
+            margin-top: 227px;
+        }
+        .box .item{
+            width: 100px;
+            height: 429px;
+            float: left;
+            background:url(images/1.jpg);
+        }
+        .box .item:nth-child(2){
+            background:url(images/2.jpg);
+        }
+        .box .item:nth-child(3){
+            background:url(images/3.jpg);
+        }
+        .box .item:nth-child(4){
+            background:url(images/4.jpg);
+            width: 789px;
+        }
+        .box .item p{
+            background: rgba(0,0,0,0.5);
+            width: 20px;
+            font-size:16px;
+            text-align: center;
+            padding-left: 40px;
+            padding-right: 40px;
+            color:white;
+            padding-top: 70px;
+            height: 359px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="item">
+            <p>我的个人拉萨之旅｜｜故事之城</p>
+        </div>
+        <div class="item">
+            <p>我的个人拉萨之旅｜｜故事之城</p>
+        </div>
+        <div class="item">
+            <p>我的个人拉萨之旅｜｜故事之城</p>
+        </div>
+        <div class="item">
+            <p>我的个人拉萨之旅｜｜故事之城</p>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(".box .item").mouseover(function(){
+            // 第一种方式,有问题,最后一个容易掉下去
+            // $(this).stop().animate( {"width" : 789} ).siblings(".item").stop().animate( {"width" : 100 } );
+
+            // 第二种方式:
+            $(this).siblings(".item").stop().animate( {"width" : 100 } );
+            $(this).stop().animate( {"width" : 789} );
+
+            // 第三种方式: 把.box的宽度设置大一些
+            // $(this).stop().animate( {"width" : 789} ).siblings(".item").stop().animate( {"width" : 100 } );
+        })
+    </script>
+</body>
+</html>

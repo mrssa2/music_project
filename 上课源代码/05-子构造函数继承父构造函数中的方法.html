@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 定义一个父构造函数
+        function Father(uname,age){
+            this.uname = uname;
+            this.age = age;
+        }
+        
+        // 通过Father的原型对象添加money方法
+        Father.prototype.money = function(){
+            console.log( this.uname + "会赚钱" );
+        }
+
+        // 再定义一个子构造函数
+        function Son(uname, age ,score ){
+            // 通过call方法改变Father里面指向实现了属性的继承
+            Father.call( this , uname , age );
+
+            // 子构造函数,有自己一个独特的属性,分数
+            this.score = score;
+        }
+
+        // 设置子构造函数的原型对象等于父子构造函数的原型对象
+        Son.prototype = Father.prototype;
+
+        // 我们子构造函数也需要有一个自己独特的方法  考试
+        Son.prototype.exam = function(){
+            console.log(this.uname +"考试考了"+this.score+"分");
+        }
+
+        var father = new Father("王叔叔",40);
+        console.log( father );
+        father.money();
+        father.exam();
+        console.log("");
+        console.log("");
+        
+        var son = new Son("大头儿子" , 6 , 90);
+        console.log( son );
+        son.money();
+        son.exam();
+    </script>
+</body>
+</html>

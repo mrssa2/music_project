@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+.box{   
+        width: 200px;
+        height: 200px;
+        margin: 100px auto;
+        transform-style:preserve-3d ;
+        transform-origin: center center;
+        position: relative;
+        transition: all 1s;
+    }
+.top{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background-color: pink;
+        
+       position: absolute;
+       left: 0;
+       top: 0;
+}
+.bottom{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background-color: purple;
+        transform: rotateY(-180deg);
+        
+        position: absolute;
+        left: 0;
+        top: 0;
+     
+}
+.box:hover{
+    transform: rotateY(180deg);
+}
+</style>
+    
+<body>
+    <div class="box">
+        <div class="top"></div>
+        <div class="bottom"></div>
+    </div>
+</body>
+</html>

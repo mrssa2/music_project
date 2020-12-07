@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #282828;
+    }
+
+    .box {
+        width: 300px;
+        height: 100px;
+        border: 1px solid white;
+        margin: 0 auto;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+
+    }
+
+    .box2 {
+        width: 300px;
+        height: 200px;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+
+    }
+
+    h1 {
+        text-align: center;
+        color: white;
+    }
+
+    .dice {
+        width: 70px;
+        height: 70px;
+        border-radius: 10px;
+        background-color: white;
+        margin: 10px;
+        display: flex;
+        padding: 5px;
+
+
+
+    }
+
+    .pip {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #282828;
+    }
+
+    .box2 .dice:nth-child(1) {
+        justify-content: space-between;
+
+
+    }
+
+    .box2 .dice:nth-child(2) {
+
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+    .box2 .dice:nth-child(3) {
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .box2 .dice:nth-child(4) {
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .box2 .dice:nth-child(5) .pip:nth-child(2) {
+        align-self: center;
+
+
+    }
+
+    .box2 .dice:nth-child(6) {
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .box2 .dice:nth-child(6) .pip:nth-child(2) {
+
+        align-self: flex-end;
+
+
+    }
+
+    .box3 .dice:nth-child(1) {
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .box3 .dice:nth-child(1) .pip:nth-child(2) {
+        align-self: center;
+    }
+
+    .box3 .dice:nth-child(1) .pip:nth-child(3) {
+        align-self: flex-end;
+    }
+
+    .box4 .dice:nth-child(1) {
+        flex-wrap: wrap;
+        flex-direction:row-reverse;
+        justify-content: center;
+        justify-content: space-between;
+    }
+    .box4 .dice:nth-child(1) .pip:nth-child(4){
+        align-self: flex-end;
+        
+    }
+    .box4 .dice:nth-child(2) {
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+    }
+    .box4 .dice:nth-child(2)  {
+        justify-content: space-between;
+        align-content: space-between;
+        flex-wrap: wrap;
+
+    }
+    .box5 .dice:nth-child(1){
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .box6 .dice:nth-child(1){
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: space-between;
+    }
+    .box6 .dice:nth-child(2){
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-between;
+        align-content: space-between;
+    }
+    .box6 .dice:nth-child(3){
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .box9 .dice:nth-child(1){
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+</style>
+
+<body>
+
+    <h1>一点</h1>
+    <div class="box1 box">
+        <div class="dice">
+            <div class="pip"></div>
+        </div>
+    </div>
+    <h1>两点</h1>
+    <div class="box2 box">
+        <div class="dice">
+            <div class="pip"></div>
+            <div class="pip"></div>
+        </div>
+        <div class="dice">
+            <div class="pip"></div>
+            <div class="pip"></div>
+        </div>
+        <div class="dice">
+            <div class="pip"></div>
+            <div class="pip"></div>
+        </div>
+        <div class="dice">
+            <div class="pip"></div>
+            <div class="pip"></div>
+        </div>
+        <div class="dice">
+            <div class="pip"></div>
+            <div class="pip"></div>
+        </div>
+        <div class="dice">
+            <div class="pip"></div>
+            <div class="pip"></div>
+        </div>
+    </div>
+    <h1>三点</h1>
+    <div class="box3 box">
+        <div class="dice">
+            <div class="pip"></div>
+            <div class="pip"></div>
+            <div class="pip"></div>
+        </div>
+    </div>
+    <h1>四点</h1>
+    <div class="box4 box">
+
+        <div class="dice">
+            <div class="pip"></div>
+            <div class="pip"></div>
+            <div class="pip"></div>
+            <div class="pip"></div>
+        </div>
+        <div class="dice">
+
+            <div class="pip"></div>
+            <div class="pip" style="background-color: white;"></div>
+            <div class="pip"></div>
+            <div class="pip"></div>
+            <div class="pip" style="background-color: white;"></div>
+            <div class="pip"></div>
+
+        </div>
+    </div>
+
+    <h1>五点</h1>
+    <div class="box5 box">
+        <div class="dice">
+           <div class="pip"></div>
+           <div class="pip" style="background-color: white;"></div>
+           <div class="pip"></div>
+           <div class="pip" style="background-color: white;"></div>
+           <div class="pip"></div>
+           <div class="pip" style="background-color: white;"></div>
+           <div class="pip"></div>
+           <div class="pip" style="background-color: white;"></div>
+           <div class="pip"></div>
+        </div>
+    </div>
+    <h1>六点</h1>
+    <div class="box6 box">
+        <div class="dice">
+            <div class="pip"></div>
+            <div class="pip"></div>
+            <div class="pip"></div>
+            <div class="pip"></div>
+            <div class="pip"></div>
+            <div class="pip"></div>
+        </div>
+        <div class="dice">
+            <div class="pip"></div>
+            <div class="pip"></div>
+            <div class="pip"></div>
+            <div class="pip"></div>
+            <div class="pip"></div>
+            <div class="pip"></div>
+        </div>
+        <div class="dice">
+            <div class="pip"></div>
+            <div class="pip"></div>
+            <div class="pip"></div>
+            <div class="pip" style="background-color: white;"></div>
+            <div class="pip"></div>
+            <div class="pip" style="background-color: white;"></div>
+            <div class="pip"></div>
+            <div class="pip" style="background-color: white;"></div>
+            <div class="pip"></div>
+        </div>
+    </div>
+    <h1>九点</h1>
+    <div class="box9 box">
+        <div class="dice">
+            <div class="pip"></div>
+            <div class="pip"></div>
+            <div class="pip"></div>
+            <div class="pip"></div>
+            <div class="pip"></div>
+            <div class="pip"></div>
+            <div class="pip"></div>
+            <div class="pip"></div>
+            <div class="pip"></div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

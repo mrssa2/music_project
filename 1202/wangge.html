@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    canvas{
+        border: 1px solid red;
+    }
+</style>
+<body>
+    <canvas width="600" height="400"></canvas>
+</body>
+<script>
+    var canvas = document.querySelector("canvas")
+    var ctx = canvas.getContext("2d");
+     
+    //x轴网格
+    var size = 10;
+    var canvasWidth = ctx.canvas.width;
+    var canvasHeight = ctx.canvas.height;
+    var xline = canvasHeight/size;
+    var yline = canvasWidth/size;
+    console.log(yline) 
+    for(var i = 1; i < xline;i++){
+        ctx.beginPath();
+        ctx.moveTo(0,size*i-0.5);
+        ctx.lineTo(canvasWidth,size*i-0.5);
+        ctx.strokeStyle = "pink"
+        ctx.stroke()
+    }
+    //y
+    for(var i = 1; i<yline; i++){
+        ctx.beginPath();
+        ctx.moveTo(size*i-0.5,0);
+        ctx.lineTo(size*i-0.5,canvasHeight);
+        ctx.strokeStyle = "pink"
+        ctx.stroke()
+    }
+
+    ctx.beginPath();
+    ctx.moveTo(30-0.5,30);
+    ctx.lineTo(30-0.5,380);
+    ctx.strokeStyle = "black"
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(550,380-0.5);
+    ctx.lineTo(30,380-0.5);
+    ctx.strokeStyle = "black"
+    ctx.stroke();
+    
+    //三角形
+    ctx.beginPath();
+    ctx.moveTo(24,30);
+    ctx.lineTo(30,15);
+    ctx.lineTo(36,30);
+    ctx.closePath();
+    ctx.fill()
+    ctx.stroke();
+    //x三角形
+    ctx.beginPath();
+    ctx.moveTo(550,374);
+    ctx.lineTo(565,380);
+    ctx.lineTo(550,386);
+    ctx.closePath();
+    ctx.fill()
+    ctx.stroke();
+    
+    // 第一条
+    ctx.beginPath();
+    ctx.moveTo(30,380);
+    ctx.lineTo(130,250);
+    ctx.stroke();
+    //正方形
+    ctx.beginPath();
+    ctx.moveTo(126,247);
+    ctx.lineTo(132,247);
+    ctx.lineTo(132,253);
+    ctx.lineTo(126,253);
+    ctx.closePath();
+    ctx.fill()
+    ctx.stroke();
+
+   //第二条
+   ctx.beginPath();
+    ctx.moveTo(130,250);
+    ctx.lineTo(230,210);
+    ctx.stroke();
+    //正方形
+    ctx.beginPath();
+    ctx.moveTo(226,207);
+    ctx.lineTo(232,207);
+    ctx.lineTo(232,213);
+    ctx.lineTo(226,213);
+    ctx.closePath();
+    ctx.fill()
+    ctx.stroke();
+   //第三条
+   ctx.beginPath();
+    ctx.moveTo(230,210);
+    ctx.lineTo(330,130);
+    ctx.stroke();
+     //正方形
+     ctx.beginPath();
+    ctx.moveTo(326,127);
+    ctx.lineTo(332,127);
+    ctx.lineTo(332,133);
+    ctx.lineTo(326,133);
+    ctx.closePath();
+    ctx.fill()
+    ctx.stroke();
+    //第四条
+    ctx.beginPath();
+    ctx.moveTo(330,130);
+    ctx.lineTo(430,50);
+    ctx.stroke();
+      //正方形
+    ctx.beginPath();
+    ctx.moveTo(426,47);
+    ctx.lineTo(432,47);
+    ctx.lineTo(432,53);
+    ctx.lineTo(426,53);
+    ctx.closePath();
+    ctx.fill()
+    ctx.stroke();
+    //第五条
+    ctx.beginPath();
+    ctx.moveTo(430,50);
+    ctx.lineTo(530,300);
+    ctx.stroke();
+     //正方形
+     ctx.beginPath();
+    ctx.moveTo(526,297);
+    ctx.lineTo(532,297);
+    ctx.lineTo(532,303);
+    ctx.lineTo(526,303);
+    ctx.closePath();
+    ctx.fill()
+    ctx.stroke();
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+  
+</script>
+</html>

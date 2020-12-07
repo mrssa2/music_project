@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        margin: 100px auto;
+        width: 50px;
+        height: 300px;
+        /* overflow: hidden; */
+    }
+    .box1{
+        width: 1500px;
+        height: 300px;
+        background:repeating-linear-gradient(45deg,
+        white 0%,white 1%,
+        black 1%,black 2%
+        );
+       
+        /* animation: donghua 8s linear infinite; */
+       
+    }
+    @keyframes donghua {
+            0%{
+                transform:translateX(0px);
+            }
+            100%{
+                transform:translateX(-1450px);
+            }
+        }
+</style>
+<body>
+    <div class="box">
+        <div class="box1"></div>
+    </div>
+</body>
+</html>

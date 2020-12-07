@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>赞(1)</button>
+    <button>赞(1)</button>
+    <button>赞(1)</button>
+    <button>赞(1)</button>
+    <script>
+        // 闭包缓存数据
+        function getValue(){
+            var num = 1;
+            return function(){
+                // 每一次点击的时候,都应该改变当前点击按钮的value值
+                num++;
+                this.innerHTML = "赞("+num+")";
+            }
+        }
+
+        // 获取所有的按钮
+        var btns  = document.querySelectorAll("button");
+        for( var i = 0; i < btns.length ; i++){
+            btns[i].onclick = getValue();
+        }
+    </script>
+</body>
+</html>

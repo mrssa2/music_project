@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select name="" id="" ><option id="province" value="">请选择</option></select>省
+    <select name="" id="" ><option value="">请选择</option></select>市
+    <select name="" id="" ><option value="">请选择</option></select>区
+</body>
+<script src="./area.js"></script>
+<script>
+    // var province =document.querySelector('.province')
+    var sel = document.querySelectorAll('select')
+    //省
+    for (n in area.province_list) {
+    //   console.log(area.province_list[n])
+      var op1 = document.createElement('option');
+      op1.innerHTML = area.province_list[n];
+      sel[0].appendChild(op1)
+
+      
+        
+
+    }
+     var arr = Object.keys(area.province_list)
+         
+        var arr1=arr.slice(1,2)
+        console.log(arr)
+    //市
+    for (n in area.city_list) {
+     var op1 = document.createElement('option');
+     op1.innerHTML=area.city_list[n];
+     sel[1].appendChild(op1)
+    }
+    //区
+    for (n in area.county_list) {
+     
+      var op1 = document.createElement('option'); //添加option
+      op1.innerHTML = area.county_list[n];
+      sel[2].appendChild(op1) //节点
+    }
+</script>
+</html>

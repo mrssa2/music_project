@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=4, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .uploader{
+        width: 180px;
+        height: 180px;
+        border: 1px dashed red;
+        margin: 100px auto 0 ;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .label-box{
+        display:block;
+        width: 100%;
+        height: 100%;
+    }
+    .file-ipt{
+        display: none;
+    }
+    .file-text{
+        color: #999;
+        text-align: center;
+        line-height: 180px;
+    }
+</style>
+<body>
+    <div class="uploader">
+        <div class="laber-box">
+            <input class="file-ipt" type="file"/>
+            <span class="file-text">上传图片</span>
+            
+        </div>
+        <div class="img-box"></div>
+    </div>
+</body>
+</html>

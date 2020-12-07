@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>赞(1)</button>
+    <button>赞(1)</button>
+    <button>赞(1)</button>
+    <button>赞(1)</button>
+
+    <script>
+        /* var btns = document.querySelectorAll("button");
+        for(var i = 0; i < btns.length ; i++ ){
+            var num = 1;
+            btns[i].onclick = function(){
+                num++;
+                this.innerHTML = "赞("+num+")";
+            }
+        } */
+
+        /* var btns = document.querySelectorAll("button");
+        for(var i = 0; i < btns.length ; i++ ){
+            (function( index ){
+                var num = 1;
+                btns[i].onclick = function(){
+                    num++;
+                    this.innerHTML = "赞("+num+")";
+                }
+            })( i )
+        } */
+
+        var btns = document.querySelectorAll("button");
+        
+        function getValue(){
+            var num = 1;
+            return function(){
+                num++;
+                this.innerHTML = "赞("+num+")";
+            }
+        }
+
+        // btns[0].onclick = getValue();
+        // btns[1].onclick = getValue();
+        // btns[2].onclick = getValue();
+        // btns[3].onclick = getValue();
+
+        for(var i = 0; i < btns.length; i++ ){
+            btns[i].onclick = getValue();
+        }
+    </script>
+</body>
+</html>

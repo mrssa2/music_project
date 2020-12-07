@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .big{
+        width: 300px;
+        height: 300px;
+        background-color: black;
+        border-radius: 50%;
+        margin: auto;
+        position: relative;
+        border: 1px solid black;
+        overflow: hidden;
+        transition: transform 2s;
+    }
+    .top{
+        width: 300px;
+        height: 150px;
+        background-color: white;
+        border-radius: 75px 75px 0 0;
+        position: relative;
+        
+    }
+    .top::after{
+        content: "";
+        width: 150px;
+        height: 150px;
+        background-color: white;
+        border-radius: 50%;
+        position: absolute;
+        top: 80px;
+        z-index: 2;
+    }
+    .top::before{
+        content: "";
+        width: 30px;
+       height: 30px;
+        border-radius: 50%;
+        position: absolute;
+        top:164px;
+        left: 57px;
+        background-color: black;
+        z-index: 5;
+    }
+    .bottom{
+        width: 150px;
+        height: 150px;
+        background-color: black;
+        border-radius: 50%;
+        position: absolute;
+        top: 80px;
+        left: 150px;
+        z-index: 2;
+    }
+    .bottom::before{
+        content: "";
+        width: 30px;
+       height: 30px;
+        border-radius: 50%;
+        position: absolute;
+        top: 29px;
+        left: 66px;
+        background-color: white;
+        z-index: 5;
+    }
+    .big:hover{
+        transform: rotate(360deg);
+    }
+</style>
+<body>
+    <div class="big">
+        <div class="top"></div>
+        <div class="bottom"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 传递就是变量之间的赋值
+        // 传递分为两种  
+        // 值传递:js里面基本类型 string number boolean undefind null ; 互不相干
+        // 引用传值:js里面复合类型 array objcet function;  生死与共
+
+        var a = 10;
+        var b = a;
+        console.log( a , b);// 10 10
+        b = 20;
+        console.log( a , b);// 10 20
+        a = 30;
+        console.log( a , b);// 30 20
+        console.log("");
+        console.log("");
+        console.log("");
+
+        var arr1 = [50,60,70];
+        var arr2 = arr1;
+        console.log( arr1, arr2 );
+
+        arr2[0] = 500;
+        console.log( arr1, arr2 );
+
+        arr2.push(80);
+        console.log( arr1, arr2 );
+        
+        arr1.unshift( 90 );
+        console.log( arr1, arr2 );
+        
+        arr1.pop();
+        console.log( arr1, arr2 );
+        console.log("");
+        console.log("");
+        console.log("");
+
+        var obj1 = {
+            uname : "张三",
+            age : 23,
+            sayHello:function(){
+                console.log("hello hello hello");
+            }
+        };
+        var obj2 = obj1;
+        console.log( obj1 );
+        console.log( obj2 );
+        console.log("");
+
+        obj2.uname = "李四";
+        console.log( obj1 );
+        console.log( obj2 );
+        console.log("");
+
+        obj1.age = 33;
+        console.log( obj1 );
+        console.log( obj2 );
+        console.log("");
+
+        obj2.sayHi = function(){
+            console.log("hi~hi~hi");
+        }
+        console.log( obj1 );
+        console.log( obj2 );
+    </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .big{
+        width: 500px;
+        height: 500px;
+        border: 1px solid red;
+        position: relative;
+        float: left;
+        z-index: 999;
+    }
+    .mask{
+        width: 200px;
+        height: 200px;
+        background-color: orange;
+        opacity: 50%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+        z-index: 999;
+    }
+    .right{
+        width:400px;
+        height: 400px;
+       
+        float: left; 
+        overflow: hidden;
+        position: relative;
+        
+    }
+    .big img{
+        width: 500px;
+        height: 500px;
+        
+    }
+    .right img{
+        width: 900px;
+        height: 900px;
+        position:absolute;
+        top: 0;
+        left: 0;
+    }
+</style>
+<body>
+    <div class="big">
+        <img src="./timg.jpg" alt="">
+        <div class="mask"></div>
+        
+    </div>
+    <div class="right">
+        <img src="./timg.jpg" alt="">
+    </div>
+</body>
+<script>
+    var big=document.querySelector(".big")
+    var mask=document.querySelector(".mask")
+    var right=document.querySelector(".right")
+    var rightimg=document.querySelector(".right img")
+    big.onmouseover=function(){
+        mask.style.display="block";
+        rightimg.style.display="block";
+    }
+    big.onmouseout=function(){
+        mask.style.display="none";
+        rightimg.style.display="none";
+    }
+    big.onmousemove=function(){
+        //获取鼠标在div的坐标
+        var e = e||window.event;
+        console.log(e)
+        var maskx = e.pageX-big.offsetLeft-mask.offsetWidth /2
+        var masky= e.pageY-big.offsetTop-mask.offsetHeight /2
+        if(maskx<0){
+            maskx=0;
+        }else if(maskx>big.offsetWidth-mask.offsetWidth ){
+            maskx=big.offsetWidth-mask.offsetWidth 
+        }
+        if(masky<0){
+            masky=0;
+        }else if(masky>big.offsetHeight-mask.offsetHeight ){
+            masky=big.offsetHeight-mask.offsetHeight 
+        }
+        mask.style.top=masky+"px";
+        mask.style.left=maskx+"px";
+
+        var imgmaxX=rightimg.offsetWidth-right.offsetWidth +2 ;
+        var imgmaxY=rightimg.offsetHeight-right.offsetHeight +2;
+        var maskmaxX=big.offsetWidth-mask.offsetWidth -2;
+        var maskmaxY=big.offsetHeight-mask.offsetHeight -2;
+        var imgX=(maskx*imgmaxX)/maskmaxX;
+        var imgY=(masky*imgmaxY)/maskmaxY;
+        rightimg.style.top=-imgY+"px";
+        rightimg.style.left=-imgX+"px";
+    }
+
+</script>
+</html>

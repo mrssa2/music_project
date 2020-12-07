@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .big{
+        position: relative;
+    }
+    .line{
+        height: 1px;
+        width: 200px;
+        background-color: black;
+        margin:  100px auto 0;
+        display: inline-block;
+        position: absolute;
+        
+    }
+    .circle{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 1px solid red;
+        background-color: white;
+        position: absolute;
+        top:-10px;
+        left: 0;
+    }
+</style>
+<body>
+    <div class="big">
+    <div class="line"><div class="circle"></div>
+    </div>
+</div>
+</body>
+<script>
+    window.onload=function(){
+        var cir=document.querySelector('.circle')
+        var line=document.querySelector('.line')
+        var big=document.querySelector('.big')
+        cir.ontouchstart=function(e){
+            var x= e.changedTouches[0].pageX;
+            var y = e.changedTouches[0].pageY;
+            cir.style.left=x+'px';
+            console.log(x)
+        }
+        cir.ontouchmove=function(e){
+            var x0= e.changedTouches[0].pageX;
+            // var y0 = e.changedTouches[0].pageY;
+            cir.style.left=x0+'px';
+            if(cir.offsetLeft<0){
+                cir.style.left=0+'px';
+                console.log(cir.style.left)
+            }else if (cir.offsetLeft>200){
+                cir.style.left=200+'px';
+                console.log(cir.style.left)
+            }
+          
+            // line.style.border='red';
+        }
+       
+    }
+</script>
+</html>

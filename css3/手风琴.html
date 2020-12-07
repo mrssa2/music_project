@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+		.big{
+			width: 300px;
+			background: #7DFFE7;
+			border: 7px solid black;
+			overflow:hidden;
+            
+		}
+        span{
+            color:#FFA500;
+        }
+		ul{
+			width: 300px;
+			float: right;
+			background: #EAFFB6;
+           
+		}
+		li{
+
+			list-style: none;
+			
+			text-align: left;
+
+
+		}
+		div{
+			text-align: center;
+			font-size: 20px;
+            
+		}
+		.one{
+			border: 1px solid red;
+		}
+
+		.two{
+			border: 1px solid red;
+		}
+		.three{
+			border: 1px solid red;
+		}
+		.four{
+			border: 1px solid red;
+		}
+		.font_1{
+			
+            transition: all 2s;
+		}
+		.one:hover .font_1{
+		
+          
+		}
+		.font_2{
+			display: none;
+		}
+		.two:hover .font_2{
+			display: block;
+		}
+		.font_3{
+			display: none;
+		}
+		.three:hover .font_3{
+			display: block;
+		}
+		.font_4{
+			display: none;
+		}
+		.four:hover .font_4{
+			display: block;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="big">
+		<div class="one">
+			<span>市内新闻</span>
+			
+			<ul class="font_1">
+				<li>我是二级菜单</li>
+				<li>我是二级菜单</li>
+				<li>我是二级菜单</li>
+				<li>我是二级菜单</li>
+			</ul>
+			
+		</div>	
+		<div class="two">
+			<span>省内新闻</span>
+				<ul class="font_2">
+					<li>我是二级菜单</li>
+					<li>我是二级菜单</li>
+					<li>我是二级菜单</li>
+					<li>我是二级菜单</li>
+				</ul>
+		</div>
+		<div class="three">
+			<span>国内新闻</span>
+				<ul class="font_3">
+					<li>我是二级菜单</li>
+					<li>我是二级菜单</li>
+					<li>我是二级菜单</li>
+					<li>我是二级菜单</li>
+				</ul>
+		</div>
+		<div class="four">
+			<span>国际新闻</span>
+				<ul class="font_4">
+					<li>我是二级菜单</li>
+					<li>我是二级菜单</li>
+					<li>我是二级菜单</li>
+					<li>我是二级菜单</li>
+				</ul>
+		</div>
+
+
+	</div>
+</body>
+</html>

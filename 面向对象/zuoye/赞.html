@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>赞(0)</button>
+    <button>赞(0)</button>
+    <button>赞(0)</button>
+    <button>赞(0)</button>
+</body>
+<script>
+    var btn = document.querySelectorAll('button');
+    var value=0;
+    for(var i = 0 ; i<btn.length;i++){
+        btn[i].onclick = function(suoyin){
+            return function(){
+                suoyin++;
+                this.innerHTML="赞"+"("+ suoyin +")"
+                console.log(suoyin)
+                
+            }
+        }(value);
+    }
+</script>
+</html>

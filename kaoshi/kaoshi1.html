@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .big {
+        width: 300px;
+        height: 100px;
+        position: relative;
+        overflow: hidden;
+        float: left;
+    }
+
+    .box1 {
+        width: 400px;
+        height: 100px;
+        float: left;
+
+        position: absolute;
+    }
+
+    .img {
+        width: 100px;
+        height: 100px;
+        background: url(./ipad.jpeg);
+        background-size: 100% 100%;
+        float: left;
+    }
+
+    .font {
+        width: 200px;
+        height: 100px;
+
+        float: left;
+    }
+
+    .f1 {
+        width: 80px;
+        height: 50px;
+
+    }
+
+    .price {
+        margin-top: 25px;
+
+    }
+
+    .two {
+        display: inline-block;
+        float: right;
+    }
+
+    .del {
+        width: 100px;
+        height: 100px;
+        float: right;
+        background-color: red;
+        line-height: 100px;
+        text-align: center;
+        color: white;
+
+    }
+</style>
+
+<body>
+    <div class="big">
+        <div class="box1">
+            <div class="img"></div>
+            <div class="font">
+                <div class="f1">
+                    <span>商品标题</span>
+                    <span>描述信息</span>
+                </div>
+
+                <div class="price">
+                    <span>$2.00</span>
+                    <div class="two">x2</div>
+                </div>
+
+            </div>
+            <div class="del">删除</div>
+
+        </div>
+
+    </div>
+</body>
+<script>
+    window.onload=function(){
+        var big = document.querySelector(".big")
+    var box = document.querySelector('.box1')
+    box.ontouchmove = function (e) {
+        x = e.changedTouches[0].pageX - big.offsetLeft - box.offsetWidth / 2
+        box.style.left = x + 'px'
+        console.log(x)
+        if (box.offsetLeft > 0) {
+            box.offsetLeft = 0
+        } else if (box.offsetLeft < big.offsetWidth - box.offsetWidth) {
+            box.offsetLeft = big.offsetWidth - box.offsetWidth + 'px'
+        }
+
+
+    }
+    big.ontouchend = function (e) {
+
+
+        x1 = e.changedTouches[0].pageX - big.offsetLeft - box.offsetWidth / 2
+        if (box.offsetLeft < (big.offsetWidth - box.offsetWidth) / 2) {
+            box.style.left = big.offsetWidth - box.offsetWidth + 'px'
+        } else if (box.offsetLeft > (big.offsetWidth - box.offsetWidth) / 2) {
+            box.style.left = 0
+        }
+    }
+
+    }
+   
+</script>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        <input type="text" placeholder="请输入需要添加的选项" class="add"/>
+        <button class="addBtn">添加</button>
+    </p>
+    <p>
+        <button class="btn">全选</button>
+        <button class="btn">全不选</button>
+        <button class="btn">反选</button>
+        <button class="btn">删除所选</button>
+    </p>
+
+    
+    <p><label><input type="checkbox"/>家里没宽带</label></p>
+    <p><label><input type="checkbox"/>网速不够快</label></p>
+    <p><label><input type="checkbox"/>手机没流量</label></p>
+    <p><label><input type="checkbox"/>学校无wifi</label></p>
+</body>
+<script>
+    var addBtn = document.querySelector(".addBtn");
+    var add = document.querySelector(".add");
+    addBtn.onclick = function(){
+        var addValue = add.value;
+        if( addValue == ""){
+            alert("请填写内容以后再添加选项");
+            return ;
+        }
+        var objP = document.createElement("p");
+
+        objP.innerHTML ="<label><input type='checkbox'/>" + addValue + "</label>";
+
+        document.body.appendChild( objP );
+
+        add.value = "";
+    }
+
+    add.onkeydown = function(e){
+        if( e.key == "Enter" ){
+            addBtn.onclick();
+        }
+    }
+
+    var btns = document.querySelectorAll(".btn");
+
+    btns[0].onclick = function(){
+        var checkboxs = document.querySelectorAll("input[type='checkbox']");
+        for( var i = 0 ; i < checkboxs.length; i++ ){
+            checkboxs[i].checked = true;
+        }
+    }
+    btns[1].onclick = function(){
+        var checkboxs = document.querySelectorAll("input[type='checkbox']");
+        for( var i = 0 ; i < checkboxs.length; i++ ){
+            checkboxs[i].checked = false;
+        }
+    }
+    btns[2].onclick = function(){
+        var checkboxs = document.querySelectorAll("input[type='checkbox']");
+        for( var i = 0 ; i < checkboxs.length; i++ ){
+            checkboxs[i].checked = !checkboxs[i].checked;
+        }
+    }
+
+    btns[3].onclick = function(){
+        var checkboxs = document.querySelectorAll("input[type='checkbox']");
+        if( checkboxs.length == 0){
+            alert("暂无数据,请添加选项后再操作");
+            return;
+        }
+        
+        var count = 0;
+        for( var i = 0 ; i < checkboxs.length; i++ ){
+            if( checkboxs[i].checked ){
+                count++;
+                // 删除当前所在项
+                document.body.removeChild( checkboxs[i].parentNode.parentNode );
+            }
+        }
+
+        if( count == 0 ){
+            alert("请选择选项后,再执行删除操作");
+            return;
+        }else{
+            alert("删除成功");
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn( num ){
+            console.log( num );
+            num--;
+
+            if( num == 0 ){
+                // 我们也可以使用return关键字,终止函数体的执行
+                return;
+            }
+
+            fn( num );
+        }
+
+        fn( 10 );
+    </script>
+</body>
+</html>

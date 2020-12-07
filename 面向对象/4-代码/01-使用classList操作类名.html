@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+        .border{
+            border:5px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <button>添加类名</button>
+    <button>删除类名</button>
+    <button>切换类名</button>
+    <button>判断是否含有指定类名</button>
+    
+    <div class="myDiv"></div>
+
+    <script>
+        var btns = document.querySelectorAll("button");
+        var oDiv = document.querySelector(".myDiv");
+
+        btns[0].onclick = function(){
+            // dom对象.classList.add("类名")           添加类名,追加类名,不会覆盖原来的类名
+            oDiv.classList.add("border");
+        }
+        btns[1].onclick = function(){
+            // dom对象.classList.remove("类名")        删除类名
+            oDiv.classList.remove("border");
+        }
+        btns[2].onclick = function(){
+            // dom对象.classList.toggle("类名")        切换类名,有则删,无则加
+            oDiv.classList.toggle("border");
+        }
+        btns[3].onclick = function(){
+            // dom对象.classList.contains("类名")      判断是否含有指定类名,含有返回true,不含有返回false
+            var res = oDiv.classList.contains("border");
+            console.log( res );
+        }
+    </script>
+</body>
+</html>

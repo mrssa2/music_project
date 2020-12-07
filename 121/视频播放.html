@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        position: relative;
+        margin: 20px auto;
+    }
+    video{
+        width: 500px;
+       
+    }
+    .bottom{
+        width: 500px;
+        height: 40px;
+        position: relative;
+        background-color: grey;
+        top: -44px;
+    }
+    .control{
+        width: 0;
+    height: 0;
+    border-width: 0 20px 20px;
+    border-style: solid;
+    border-color: transparent transparent white;
+    transform: translate(90deg);
+    }
+</style>
+<body>
+    <div class="box">
+        <h2>视频播放器</h2>
+        <video src="./cat.mp4"></video>
+        <div class="bottom">
+            <div class="control"></div>
+            <div class="line"></div>
+            <div class="bar"></div>
+            <div class="timer">
+                <span>00:00:00</span>
+            </div>
+        </div>
+        
+    </div>
+    
+</body>
+</html>

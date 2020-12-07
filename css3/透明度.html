@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        width: 900px;
+        margin: auto;
+        
+    }
+
+    .big {
+
+        width: 900px;
+        height: 500px;
+        opacity: 0;
+        overflow: hidden;
+        background-color: green
+    }
+
+    ul {
+        width: 900px;
+        height: 100px;
+    }
+
+    li {
+        width: 100px;
+        list-style: none;
+        float: left;
+        height: 100px;
+    }
+
+    ul:nth-child(2n) li:nth-child(2n+1) {
+        background-color: red;
+    }
+
+    ul:nth-child(2n+1) li:nth-child(2n) {
+        background-color: red;
+    }
+
+    .line {
+        width: 900px;
+        height: 10px;
+        background-color: black;
+        margin-top: 100px;
+        position: relative;
+    }
+
+    .square {
+        width: 20px;
+        height: 40px;
+        background-color: yellow;
+        position: absolute;
+        top: -15px;
+        left: 0;
+
+    }
+</style>
+
+<body>
+    <div class="box">
+
+
+        <div class="big">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="progress">
+            <div class="line">
+                <div class="square"></div>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script>
+    var oParent = document.querySelector('.line')
+    var  oDiv = document.querySelector('.square')
+    var div = document.querySelector(".big")
+    var squareleft = 0;
+    window.onload = function () {
+
+        oDiv.onmousedown = function (ev) {
+
+            var oEvent = ev || event;
+            var disX = oEvent.clientX - oDiv.offsetLeft;
+
+            document.onmousemove = function (ev) {
+                var oEvent = ev || event;
+                var l = oEvent.clientX - disX;
+                if (l < 0) {
+
+                    l = 0;
+
+                } else if (l > oParent.offsetWidth - oDiv.offsetWidth) {
+
+                    l = oParent.offsetWidth - oDiv.offsetWidth;
+                }
+                oDiv.style.left = l + 'px';
+                console.log(oDiv.offsetLeft)
+                var scale = oDiv.offsetLeft/oParent.offsetWidth;
+                    
+                div.style.opacity = scale
+                // div.style.opacity = scale;
+
+            };
+
+            document.onmouseup = function () {
+
+                document.onmousemove = null;
+                document.onmouseup = null;
+            };
+        };
+
+        // square.onmousedown=function(e){
+        //     var e =e||window.event;
+        //    square.startX=e.pageX;
+
+        // }
+        // line.onmousemove=function(e){
+        //         var e =e||window.event;
+        //     // console.log(e)
+
+        //     var x = e.pageX-square.offsetLeft;
+        //     squareleft = e.pageX-x
+        //     console.log(square.offsetLeft)
+
+        //     square.style.left= squareleft +'px';
+        //     // console.log(divx)
+        //     }
+
+
+    }
+</script>
+
+</html>

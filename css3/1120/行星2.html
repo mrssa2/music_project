@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+   
+    body{
+        background-color: black;
+    }
+    .big{
+        position: relative;
+    }
+    .sun{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: yellow;
+       
+    }
+    
+    .one{
+        width: 100px;
+        height:100px;
+        border-radius: 50%;
+        border:1px solid #B0B0B0 ;
+        position: relative;
+        
+
+    }
+    .one::before{
+        content: "";
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: green;
+        position: absolute;
+        left: 31px;
+        top: -11px;
+    }
+    .two{
+        width: 150px;
+        height:150px;
+        border-radius: 50%;
+        border:1px solid #B0B0B0 ;
+        position: relative;
+    }
+    .two:before{
+        content: "";
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: red;
+        position: absolute;
+        left:57px;
+        top: -11px;
+    }
+    .three{
+        width: 200px;
+        height:  200px;
+        border-radius: 50%;
+        border:1px solid #B0B0B0 ;
+        position: relative;
+    }
+    .three:before{
+        content: "";
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #0000FF;
+        position: absolute;
+        left: 81px;
+        top: -11px;
+    }
+    .four{
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        border:1px solid #B0B0B0 ;
+    }
+    .four:before{
+        content: "";
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #800080;
+        position: absolute;
+        left: 108px;
+        top: -11px;
+    }
+    .five{
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        border:1px solid #B0B0B0 ;
+    }
+    .five:before{
+        content: "";
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #FFDEE3;
+        position: absolute;
+        left: 132px;
+        top: -11px;
+    }
+    .six{
+        width: 350px;
+        height: 350px;
+        border-radius: 50%;
+        border:1px solid #B0B0B0 ;
+    }
+    .six:before{
+        content: "";
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #FFA500;
+        position: absolute;
+        left: 157px;
+        top: -11px;
+    }
+    .se{
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        border:1px solid #B0B0B0 ;
+    }
+    .se:before{
+        content: "";
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color:#860000;
+        position: absolute;
+        left: 181px;
+        top: -11px;
+    }
+    .ei{
+        width: 450px;
+        height: 450px;
+        border-radius: 50%;
+        border:1px solid #B0B0B0 ;
+    }
+    .ei:before{
+        content: "";
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #87CEEB;
+        position: absolute;
+        left: 205px;
+        top: -11px;
+    }
+    .ni{
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        border:1px solid #B0B0B0 ;
+    }
+    .ni:before{
+        content: "";
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #90EE90;
+        position: absolute;
+        left:  230px;
+        top:-11px;
+    }
+    div{
+      margin: auto;
+        margin-top: 25px;
+        transition: transform 10s;
+    }
+   
+    div:hover{
+        transform: rotate(360deg);
+    }
+
+</style>
+<body>
+    <div class="big">
+
+    
+    <div class="sun"></div>
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+    <div class="four"></div>
+    <div class="five"></div>
+    <div class="six"></div>
+    <div class="se"></div>
+    <div class="ei"></div>
+    <div class="ni"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.浅拷贝只是最外层拷贝一层,更深层次对象级别的数据只拷贝引用(也就是只拷贝以后引用地址) 
+        var obj1 = {
+            id    : 1,
+            uname : "张三",
+            msg   : {
+                age : 18
+            }
+        };
+        // 另外,使用   Object.assign(target,sources)   es6新增方法可以实现"浅拷贝"
+        // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
+
+        // Object.assign(目标对象,源对象) 可以把源对象拷贝到目标对象中
+        // Object.assign(目标对象,源对象1,源对象2....) 还可以多源对象合并到同一个目标对象中
+
+        var obj2 = {};
+        Object.assign( obj2 , obj1 );
+        console.log( obj1 );
+        console.log( obj2 );
+        console.log("");
+        console.log("");
+        
+        obj2.msg.age = 58;
+        console.log( obj1 );
+        console.log( obj2 );
+    </script>
+</body>
+</html>

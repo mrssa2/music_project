@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 全局作用下定义的变量和函数,都会作为window对象的属性和方法
+        /* console.log( window );
+
+        var uname = "张三";
+        console.log( window );
+
+        function fn(){
+            console.log( this );
+            console.log("我是迷人fn函数");
+        }
+
+        console.log( window.uname );
+        window.fn(); */
+
+        var uname = "张三";
+
+        function fn(a,b){
+            console.log( this );
+            console.log( this.uname );
+            console.log( a );
+            console.log( b );
+            console.log( a+b );
+        }
+
+        // 函数名.call() 调用函数
+        fn.call();
+        console.log("");
+        console.log("");
+        console.log("");
+
+        // 函数名.call( this指向的对象 ) 调用函数,并且改变函数内部this指向
+        var obj = {
+            uname : "李四",
+            age : 24
+        }
+        fn.call( obj );
+        console.log("");
+        console.log("");
+        console.log("");
+
+        // 函数名.call( this指向的对象 , 实参1,实参2... ) 调用函数,改变this指向,并传递参数
+        fn.call( obj, 10, 20 );
+        console.log("");
+        console.log("");
+        console.log("");
+
+        // 函数名.call( null , 实参1,实参2... ) 调用函数,不改变this指向,只传递参数
+        fn.call( null, 50, 80 );
+    </script>
+</body>
+</html>
